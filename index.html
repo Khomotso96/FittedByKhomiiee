@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fittedbykhomiiee | Minimalist Clothing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .cart-count {
+            top: -8px;
+            right: -8px;
+        }
+        .product-card:hover .product-actions {
+            opacity: 1;
+            bottom: 20px;
+        }
+        .product-actions {
+            transition: all 0.3s ease;
+        }
+        .dropdown-menu {
+            transform-origin: top right;
+            transition: all 0.2s ease;
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+            opacity: 1;
+            transform: scale(1);
+        }
+        .mobile-menu {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="text-2xl font-bold tracking-tighter">fittedbykhomiiee</a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="hover:text-gray-600">Home</a>
+                <a href="#shop" class="hover:text-gray-600">Shop</a>
+                <a href="#about" class="hover:text-gray-600">About</a>
+                <a href="#contact" class="hover:text-gray-600">Contact</a>
+                
+                <!-- Account Dropdown -->
+                <div class="dropdown relative">
+                    <button class="hover:text-gray-600 flex items-center">
+                        Account <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="dropdown-menu absolute hidden right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 opacity-0 transform scale-95">
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">My Account</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Orders</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Returns</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Exchanges</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Logout</a>
+                    </div>
+                </div>
+            </nav>
+            
+            <!-- Cart and Mobile Menu Button -->
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <button id="cart-toggle" class="hover:text-gray-600">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span id="cart-count" class="cart-count absolute bg-black text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </button>
+                </div>
+                <button id="mobile-menu-toggle" class="md:hidden">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu hidden md:hidden bg-white border-t py-4 px-4">
+            <div class="flex flex-col space-y-3">
+                <a href="#" class="hover:text-gray-600">Home</a>
+                <a href="#shop" class="hover:text-gray-600">Shop</a>
+                <a href="#about" class="hover:text-gray-600">About</a>
+                <a href="#contact" class="hover:text-gray-600">Contact</a>
+                <div class="pt-2 border-t">
+                    <a href="#" class="block py-1 hover:text-gray-600">My Account</a>
+                    <a href="#" class="block py-1 hover:text-gray-600">Orders</a>
+                    <a href="#" class="block py-1 hover:text-gray-600">Returns</a>
+                    <a href="#" class="block py-1 hover:text-gray-600">Exchanges</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gray-100 py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Minimalist Essentials</h1>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Elevate your wardrobe with our curated collection of timeless pieces</p>
+            <a href="#shop" class="bg-black text-white px-8 py-3 inline-block hover:bg-gray-800 transition">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section id="shop" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center">Our Collection</h2>
+            
+            <!-- Filter/Sort -->
+            <div class="flex justify-between items-center mb-8">
+                <div class="flex space-x-4">
+                    <button class="px-4 py-2 border rounded hover:bg-gray-100">All</button>
+                    <button class="px-4 py-2 border rounded hover:bg-gray-100">Tops</button>
+                    <button class="px-4 py-2 border rounded hover:bg-gray-100">Bottoms</button>
+                    <button class="px-4 py-2 border rounded hover:bg-gray-100">Accessories</button>
+                </div>
+                <div>
+                    <select class="px-4 py-2 border rounded">
+                        <option>Sort by</option>
+                        <option>Price: Low to High</option>
+                        <option>Price: High to Low</option>
+                        <option>Newest</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Products Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm relative">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Minimalist T-Shirt" class="w-full h-64 object-cover">
+                        <div class="product-actions absolute left-0 right-0 bottom-0 opacity-0 flex justify-center space-x-2 mb-4">
+                            <button class="add-to-cart bg-black text-white px-4 py-2 rounded hover:bg-gray-800" data-id="1" data-name="Essential White Tee" data-price="299">Add to Cart</button>
+                            <button class="bg-white text-black px-4 py-2 rounded border hover:bg-gray-100">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold">Essential White Tee</h3>
+                        <p class="text-gray-600">R 299.00</p>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm relative">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Black Denim Jeans" class="w-full h-64 object-cover">
+                        <div class="product-actions absolute left-0 right-0 bottom-0 opacity-0 flex justify-center space-x-2 mb-4">
+                            <button class="add-to-cart bg-black text-white px-4 py-2 rounded hover:bg-gray-800" data-id="2" data-name="Black Denim Jeans" data-price="899">Add to Cart</button>
+                            <button class="bg-white text-black px-4 py-2 rounded border hover:bg-gray-100">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold">Bomber Jacket</h3>
+                        <p class="text-gray-600">R 899.00</p>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm relative">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Overshirt" class="w-full h-64 object-cover">
+                        <div class="product-actions absolute left-0 right-0 bottom-0 opacity-0 flex justify-center space-x-2 mb-4">
+                            <button class="add-to-cart bg-black text-white px-4 py-2 rounded hover:bg-gray-800" data-id="3" data-name="Overshirt" data-price="1299">Add to Cart</button>
+                            <button class="bg-white text-black px-4 py-2 rounded border hover:bg-gray-100">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold">Overshirt</h3>
+                        <p class="text-gray-600">R 699.00</p>
+                    </div>
+                </div>
+                       
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm relative">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1595341888016-a392ef81b7de?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Linen Shirt" class="w-full h-64 object-cover">
+                        <div class="product-actions absolute left-0 right-0 bottom-0 opacity-0 flex justify-center space-x-2 mb-4">
+                            <button class="add-to-cart bg-black text-white px-4 py-2 rounded hover:bg-gray-800" data-id="5" data-name="Linen Shirt" data-price="699">Add to Cart</button>
+                            <button class="bg-white text-black px-4 py-2 rounded border hover:bg-gray-100">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold">Sneakers</h3>
+                        <p class="text-gray-600">R 1699.00</p>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm relative">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Tailored Trousers" class="w-full h-64 object-cover">
+                        <div class="product-actions absolute left-0 right-0 bottom-0 opacity-0 flex justify-center space-x-2 mb-4">
+                            <button class="add-to-cart bg-black text-white px-4 py-2 rounded hover:bg-gray-800" data-id="6" data-name="Tailored Trousers" data-price="799">Add to Cart</button>
+                            <button class="bg-white text-black px-4 py-2 rounded border hover:bg-gray-100">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold">Nike</h3>
+                        <p class="text-gray-600">R 1799.00</p>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm relative">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Cashmere Scarf" class="w-full h-64 object-cover">
+                        <div class="product-actions absolute left-0 right-0 bottom-0 opacity-0 flex justify-center space-x-2 mb-4">
+                            <button class="add-to-cart bg-black text-white px-4 py-2 rounded hover:bg-gray-800" data-id="7" data-name="Cashmere Scarf" data-price="599">Add to Cart</button>
+                            <button class="bg-white text-black px-4 py-2 rounded border hover:bg-gray-100">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold">Black Tee</h3>
+                        <p class="text-gray-600">R 599.00</p>
+                    </div>
+                </div>
+                
+                <!-- Product 7 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm relative">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Leather Belt" class="w-full h-64 object-cover">
+                        <div class="product-actions absolute left-0 right-0 bottom-0 opacity-0 flex justify-center space-x-2 mb-4">
+                            <button class="add-to-cart bg-black text-white px-4 py-2 rounded hover:bg-gray-800" data-id="8" data-name="Leather Belt" data-price="399">Add to Cart</button>
+                            <button class="bg-white text-black px-4 py-2 rounded border hover:bg-gray-100">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold">Neck Tie</h3>
+                        <p class="text-gray-600">R 399.00</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="px-6 py-3 border rounded hover:bg-gray-100">Load More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-6">About fittedbykhomiiee</h2>
+                <p class="text-lg mb-8">Founded in 2023, fittedbykhomiiee is a South African clothing brand dedicated to creating minimalist, high-quality essentials that stand the test of time. Our pieces are designed to be versatile, comfortable, and effortlessly stylish.</p>
+                
+                <div class="grid md:grid-cols-3 gap-8 mt-12">
+                    <div>
+                        <div class="text-4xl mb-4 text-gray-700">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 class="font-bold mb-2">Sustainable Materials</h3>
+                        <p class="text-gray-600">We prioritise eco-friendly fabrics and ethical production methods.</p>
+                    </div>
+                    <div>
+                        <div class="text-4xl mb-4 text-gray-700">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                        <h3 class="font-bold mb-2">Timeless Design</h3>
+                        <p class="text-gray-600">Our pieces are designed to be wardrobe staples that never go out of style.</p>
+                    </div>
+                    <div>
+                        <div class="text-4xl mb-4 text-gray-700">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="font-bold mb-2">Quality Craftsmanship</h3>
+                        <p class="text-gray-600">Every item is crafted with attention to detail and built to last.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Policies Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="border p-6 rounded-lg">
+                    <h3 class="font-bold text-lg mb-4">Shipping & Returns</h3>
+                    <p class="text-gray-600 mb-4">Free shipping on all orders over R500. Delivery within 3-5 business days.</p>
+                    <p class="text-gray-600">Easy 30-day returns. Items must be unworn with tags attached.</p>
+                </div>
+                <div class="border p-6 rounded-lg">
+                    <h3 class="font-bold text-lg mb-4">Exchanges</h3>
+                    <p class="text-gray-600 mb-4">Need a different size? We offer free exchanges within 14 days of delivery.</p>
+                    <p class="text-gray-600">Contact our customer service to initiate an exchange.</p>
+                </div>
+                <div class="border p-6 rounded-lg">
+                    <h3 class="font-bold text-lg mb-4">Customer Service</h3>
+                    <p class="text-gray-600 mb-4">Have questions? We're here to help.</p>
+                    <p class="text-gray-600">Email us at <a href="mailto:hello@fittedbykhomiiee.com" class="underline">hello@fittedbykhomiiee.com</a> or call +27 12 345 6789</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-12 text-center">Contact Us</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="font-bold text-lg mb-4">Get in Touch</h3>
+                        <p class="text-gray-600 mb-6">Have questions about our products, shipping, or returns? Fill out the form and we'll get back to you within 24 hours.</p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="text-gray-700 mr-4">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Address</h4>
+                                    <p class="text-gray-600">123 Fashion Street, Johannesburg, South Africa</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="text-gray-700 mr-4">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Email</h4>
+                                    <p class="text-gray-600">hello@fittedbykhomiiee.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="text-gray-700 mr-4">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Phone</h4>
+                                    <p class="text-gray-600">+27 12 345 6789</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <form class="space-y-4">
+                            <div>
+                                <label for="name" class="block mb-1">Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-1 focus:ring-black">
+                            </div>
+                            <div>
+                                <label for="email" class="block mb-1">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-1 focus:ring-black">
+                            </div>
+                            <div>
+                                <label for="subject" class="block mb-1">Subject</label>
+                                <input type="text" id="subject" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-1 focus:ring-black">
+                            </div>
+                            <div>
+                                <label for="message" class="block mb-1">Message</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-1 focus:ring-black"></textarea>
+                            </div>
+                            <button type="submit" class="bg-black text-white px-6 py-3 rounded hover:bg-gray-800 transition">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-16 bg-black text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold mb-4">Join Our Newsletter</h2>
+            <p class="mb-8 max-w-2xl mx-auto">Subscribe to receive updates, access to exclusive deals, and more.</p>
+            
+            <form class="max-w-md mx-auto flex">
+                <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-l focus:outline-none text-black">
+                <button type="submit" class="bg-white text-black px-6 py-3 rounded-r hover:bg-gray-200 transition">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">fittedbykhomiiee</h3>
+                    <p class="text-gray-400">Minimalist essentials for the modern wardrobe.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Shop</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">All Products</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">New Arrivals</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Best Sellers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Sale</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Information</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Shipping Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Returns & Exchanges</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 fittedbykhomiiee. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Sidebar -->
+    <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full md:w-96 bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-50 overflow-y-auto">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-bold">Your Cart</h3>
+                <button id="cart-close" class="text-gray-500 hover:text-black">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div id="cart-items" class="space-y-4 mb-6">
+                <!-- Cart items will be added here dynamically -->
+                <p class="text-gray-500 text-center py-8">Your cart is empty</p>
+            </div>
+            
+            <div class="border-t pt-4">
+                <div class="flex justify-between mb-2">
+                    <span>Subtotal</span>
+                    <span id="cart-subtotal">R 0.00</span>
+                </div>
+                <div class="flex justify-between mb-4">
+                    <span>Shipping</span>
+                    <span>Calculated at checkout</span>
+                </div>
+                <div class="flex justify-between font-bold text-lg">
+                    <span>Total</span>
+                    <span id="cart-total">R 0.00</span>
+                </div>
+                
+                <div class="mt-6 space-y-3">
+                    <a href="#" class="block bg-black text-white text-center py-3 rounded hover:bg-gray-800 transition">Checkout</a>
+                    <a href="#" class="block border border-black text-center py-3 rounded hover:bg-gray-100 transition">Continue Shopping</a>
+                </div>
+                
+                <div class="mt-6 text-sm text-gray-500">
+                    <p>Free shipping on orders over R500. Easy returns within 30 days.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="cart-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+
+    <!-- Quick View Modal -->
+    <div id="quick-view-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="relative h-full w-full flex items-center justify-center p-4">
+            <div class="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+                <button id="quick-view-close" class="absolute top-4 right-4 text-gray-500 hover:text-black z-10">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+                
+                <div class="grid md:grid-cols-2 gap-8 p-8">
+                    <div>
+                        <img id="quick-view-image" src="" alt="" class="w-full rounded">
+                    </div>
+                    <div>
+                        <h2 id="quick-view-title" class="text-2xl font-bold mb-2"></h2>
+                        <p id="quick-view-price" class="text-xl mb-4"></p>
+                        
+                        <div class="mb-6">
+                            <p id="quick-view-description" class="text-gray-600 mb-4">This minimalist essential is crafted from premium materials for lasting comfort and style. Designed to be versatile enough for any occasion.</p>
+                            
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block mb-2">Size</label>
+                                    <select class="w-full px-4 py-2 border rounded">
+                                        <option>XS</option>
+                                        <option>S</option>
+                                        <option>M</option>
+                                        <option>L</option>
+                                        <option>XL</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block mb-2">Color</label>
+                                    <select class="w-full px-4 py-2 border rounded">
+                                        <option>Black</option>
+                                        <option>White</option>
+                                        <option>Gray</option>
+                                        <option>Navy</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block mb-2">Quantity</label>
+                                    <div class="flex border rounded w-32">
+                                        <button class="px-3 py-2 border-r">-</button>
+                                        <input type="number" value="1" min="1" class="w-full text-center focus:outline-none">
+                                        <button class="px-3 py-2 border-l">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="add-to-cart w-full bg-black text-white py-3 rounded hover:bg-gray-800 transition mb-4">Add to Cart</button>
+                        
+                        <div class="border-t pt-4">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-truck mr-2"></i>
+                                <span>Free shipping on orders over R500</span>
+                            </div>
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-exchange-alt mr-2"></i>
+                                <span>Easy 30-day returns</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-credit-card mr-2"></i>
+                                <span>Secure checkout</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Cart Functionality
+        const cartToggle = document.getElementById('cart-toggle');
+        const cartClose = document.getElementById('cart-close');
+        const cartSidebar = document.getElementById('cart-sidebar');
+        const cartOverlay = document.getElementById('cart-overlay');
+        const cartCount = document.getElementById('cart-count');
+        const cartItems = document.getElementById('cart-items');
+        const cartSubtotal = document.getElementById('cart-subtotal');
+        const cartTotal = document.getElementById('cart-total');
+        
+        let cart = [];
+        
+        // Toggle Cart
+        cartToggle.addEventListener('click', () => {
+            cartSidebar.classList.remove('translate-x-full');
+            cartOverlay.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        cartClose.addEventListener('click', () => {
+            cartSidebar.classList.add('translate-x-full');
+            cartOverlay.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        cartOverlay.addEventListener('click', () => {
+            cartSidebar.classList.add('translate-x-full');
+            cartOverlay.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Add to Cart
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', () => {
+                const id = button.getAttribute('data-id');
+                const name = button.getAttribute('data-name');
+                const price = parseFloat(button.getAttribute('data-price'));
+                const image = button.closest('.product-card').querySelector('img').src;
+                
+                // Check if item already in cart
+                const existingItem = cart.find(item => item.id === id);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        id,
+                        name,
+                        price,
+                        image,
+                        quantity: 1
+                    });
+                }
+                
+                updateCart();
+                
+                // Show cart sidebar
+                cartSidebar.classList.remove('translate-x-full');
+                cartOverlay.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        // Update Cart
+        function updateCart() {
+            // Update cart count
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            
+            // Update cart items
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p class="text-gray-500 text-center py-8">Your cart is empty</p>';
+            } else {
+                cartItems.innerHTML = cart.map(item => `
+                    <div class="flex border-b pb-4">
+                        <div class="w-20 h-20 bg-gray-100 rounded overflow-hidden">
+                            <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-grow pl-4">
+                            <div class="flex justify-between">
+                                <h4 class="font-medium">${item.name}</h4>
+                                <button class="remove-item text-gray-400 hover:text-black" data-id="${item.id}">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <div class="flex justify-between items-center mt-2">
+                                <div class="flex items-center border rounded">
+                                    <button class="decrease-quantity px-2 py-1" data-id="${item.id}">-</button>
+                                    <span class="quantity px-2">${item.quantity}</span>
+                                    <button class="increase-quantity px-2 py-1" data-id="${item.id}">+</button>
+                                </div>
+                                <p class="font-medium">R ${(item.price * item.quantity).toFixed(2)}</p>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+                
+                // Add event listeners to new buttons
+                document.querySelectorAll('.remove-item').forEach(button => {
+                    button.addEventListener('click', () => {
+                        const id = button.getAttribute('data-id');
+                        cart = cart.filter(item => item.id !== id);
+                        updateCart();
+                    });
+                });
+                
+                document.querySelectorAll('.decrease-quantity').forEach(button => {
+                    button.addEventListener('click', () => {
+                        const id = button.getAttribute('data-id');
+                        const item = cart.find(item => item.id === id);
+                        
+                        if (item.quantity > 1) {
+                            item.quantity -= 1;
+                        } else {
+                            cart = cart.filter(item => item.id !== id);
+                        }
+                        
+                        updateCart();
+                    });
+                });
+                
+                document.querySelectorAll('.increase-quantity').forEach(button => {
+                    button.addEventListener('click', () => {
+                        const id = button.getAttribute('data-id');
+                        const item = cart.find(item => item.id === id);
+                        item.quantity += 1;
+                        updateCart();
+                    });
+                });
+            }
+            
+            // Update totals
+            const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+            cartSubtotal.textContent = `R ${subtotal.toFixed(2)}`;
+            cartTotal.textContent = `R ${subtotal.toFixed(2)}`;
+        }
+        
+        // Quick View Modal
+        const quickViewModal = document.getElementById('quick-view-modal');
+        const quickViewClose = document.getElementById('quick-view-close');
+        const quickViewImage = document.getElementById('quick-view-image');
+        const quickViewTitle = document.getElementById('quick-view-title');
+        const quickViewPrice = document.getElementById('quick-view-price');
+        const quickViewDescription = document.getElementById('quick-view-description');
+        
+        document.querySelectorAll('.product-actions button:last-child').forEach(button => {
+            button.addEventListener('click', () => {
+                const productCard = button.closest('.product-card');
+                const image = productCard.querySelector('img').src;
+                const title = productCard.querySelector('h3').textContent;
+                const price = productCard.querySelector('p').textContent;
+                
+                quickViewImage.src = image;
+                quickViewImage.alt = title;
+                quickViewTitle.textContent = title;
+                quickViewPrice.textContent = price;
+                
+                quickViewModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        quickViewClose.addEventListener('click', () => {
+            quickViewModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        quickViewModal.addEventListener('click', (e) => {
+            if (e.target === quickViewModal) {
+                quickViewModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
